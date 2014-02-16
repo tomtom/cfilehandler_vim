@@ -2,13 +2,13 @@
 " @Website:     http://www.vim.org/account/profile.php?user_id=4037
 " @GIT:         http://github.com/tomtom/sbtqf_handler_vim
 " @License:     GPL (see http://www.gnu.org/licenses/gpl.txt)
-" @Revision:    7
+" @Revision:    8
 " GetLatestVimScripts: 0 0 :AutoInstall: sbtqf_handler.vim
 
-if &cp || exists("loaded_sbtqf_handler")
+if &cp || exists("loaded_cfilehandler")
     finish
 endif
-let loaded_sbtqf_handler = 1
+let loaded_cfilehandler = 1
 
 let s:save_cpo = &cpo
 set cpo&vim
