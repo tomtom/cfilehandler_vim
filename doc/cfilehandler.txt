@@ -23,9 +23,29 @@ Install~
 
 Edit the vba file and type: >
 
-    :so %%
+    :so %
 
 See :help vimball for details.
 
 
-%s
+========================================================================
+Contents~
+
+        g:cfilehandler#show_qfl ..... |g:cfilehandler#show_qfl|
+        g:cfilehandler#lines_expr ... |g:cfilehandler#lines_expr|
+
+
+========================================================================
+autoload/cfilehandler.vim~
+
+                                                    *g:cfilehandler#show_qfl*
+g:cfilehandler#show_qfl        (default: {'open': 'copen', 'close': 'cclose'})
+    Run this command after setting the |quickfix| list to open or 
+    close the quickfix list.
+
+                                                    *g:cfilehandler#lines_expr*
+g:cfilehandler#lines_expr      (default: 'min([&previewheight, &lines / 2, qfln])')
+
+
+
+vim:tw=78:fo=tcq2:isk=!-~,^*,^|,^":ts=8:ft=help:norl:

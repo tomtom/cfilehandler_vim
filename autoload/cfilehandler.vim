@@ -1,6 +1,6 @@
 " @Author:      Tom Link (mailto:micathom AT gmail com?subject=[vim])
 " @License:     GPL (see http://www.gnu.org/licenses/gpl.txt)
-" @Revision:    98
+" @Revision:    100
 
 
 if !exists('g:cfilehandler#show_qfl')
@@ -19,6 +19,8 @@ let s:cfilehandlerfiles = {}
 let s:starttime = localtime()
 
 
+" Setup the file watcher for the current buffer.
+" :nodoc:
 function! cfilehandler#SetupWatcher() "{{{3
     if exists('b:cfilehandler_file') && !empty(b:cfilehandler_file)
         autocmd! CfileHandler CursorHold,CursorHoldI <buffer>
@@ -29,6 +31,7 @@ endf
 
 " If the file b:cfilehandler_file exists, watch it for changes and read 
 " its contents into the |quickfix| list.
+" :nodoc:
 function! cfilehandler#Watch() "{{{3
     if exists('b:cfilehandler_file') && !empty(b:cfilehandler_file) && filereadable(b:cfilehandler_file)
         let new_mtime = getftime(b:cfilehandler_file)
@@ -51,6 +54,7 @@ function! cfilehandler#Watch() "{{{3
 endf
 
 
+" :nodoc:
 function! cfilehandler#CmdPre() "{{{3
     let b:cfilehandler_pos = getpos('.')
     let b:cfilehandler_qfl = getqflist()
@@ -58,6 +62,7 @@ function! cfilehandler#CmdPre() "{{{3
 endf
 
 
+" :nodoc:
 function! cfilehandler#ResetPos() "{{{3
     if exists('b:cfilehandler_pos')
         call setpos('.', b:cfilehandler_pos)
@@ -66,6 +71,7 @@ function! cfilehandler#ResetPos() "{{{3
 endf
 
 
+" :nodoc:
 function! cfilehandler#CmdPost() "{{{3
     if !empty(g:cfilehandler#show_qfl)
         let qfl = getqflist()
